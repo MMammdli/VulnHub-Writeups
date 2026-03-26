@@ -1,3 +1,18 @@
+nmap -T5 192.168.100.11                          
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-26 05:28 EDT
+Nmap scan report for 192.168.100.11
+Host is up (0.00047s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+8000/tcp open  http-alt
+MAC Address: 08:00:27:41:B1:DD (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 13.81 seconds
+                                                                                                                                                                                                                                            
+nmap  -p80,139,445,8000 -sCVS -oN initial 192.168.100.11 
 Starting Nmap 7.95 ( https://nmap.org ) at 2026-03-26 05:29 EDT
 Nmap scan report for 192.168.100.11
 Host is up (0.0021s latency).
